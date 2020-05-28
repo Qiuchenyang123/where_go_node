@@ -4,7 +4,8 @@ router.get('/list', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     const {ticketTypes, priorityTypes,} = req.query;
     res.send(
-        [{
+        [
+            {
             detail: {
                 from: '北京',
                 to: '上海',
@@ -478,6 +479,35 @@ router.get('/list', (req, res) => {
                 }]
             }]
         }]
+    )
+});
+
+router.get('/schema', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(
+        [
+            {
+                station: '北京南',
+                arriveTime: null,
+                departTime: '07:20',
+                stay: null,
+            }, {
+            station: '天津南',
+            arriveTime: '07:54',
+            departTime: '07:56',
+            stay: 2,
+        }, {
+            station: '南京南',
+            arriveTime: '11:51',
+            departTime: '11:53',
+            stay: 2,
+        }, {
+            station: '上海虹桥',
+            arriveTime: '13:08',
+            departTime: null,
+            stay: null,
+        }
+        ]
     )
 });
 
